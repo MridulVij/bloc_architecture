@@ -25,12 +25,12 @@ class _HomeState extends State<Home> {
             actions: [
               IconButton(
                   onPressed: () {
-                    homeBloc.add(HomeWishlistButtonClickedEvent());
+                    homeBloc.add(HomeWishlistButtonNavigationEvent());
                   },
                   icon: Icon(Icons.favorite_border)),
               IconButton(
                   onPressed: () {
-                    homeBloc.add(HomeProductCartButtonClickedEvent());
+                    homeBloc.add(HomeCartButtonNavigationEvent());
                   },
                   icon: Icon(Icons.shopping_bag_outlined))
             ],
