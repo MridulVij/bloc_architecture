@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../bloc/posts_bloc.dart';
+
 class PostsPage extends StatefulWidget {
   const PostsPage({super.key});
 
@@ -8,6 +10,16 @@ class PostsPage extends StatefulWidget {
 }
 
 class _PostsPageState extends State<PostsPage> {
+  // creating an instance
+  final PostsBloc postsBloc = PostsBloc();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    postsBloc.add(PostsInitialFetchEvent());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
