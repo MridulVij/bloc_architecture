@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'apis/features/home/home.dart';
 import 'features/home/ui/home.dart';
 
-void main() {
+void main() async {
   runApp(const MainApp());
 }
 
@@ -11,9 +12,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: HomeAPI(),
     );
   }
 }
