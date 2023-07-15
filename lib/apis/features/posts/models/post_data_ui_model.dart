@@ -1,13 +1,53 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+// class PostDataUiModel {
+//   final int userID;
+//   final int id;
+//   final String title;
+//   final String body;
+//   PostDataUiModel({
+//     required this.userID,
+//     required this.id,
+//     required this.title,
+//     required this.body,
+//   });
+// }
+
+// To parse this JSON data, do
+//
+//     final postDataUiModel = postDataUiModelFromJson(jsonString);
+
+List<PostDataUiModel> postDataUiModelFromJson(String str) =>
+    List<PostDataUiModel>.from(
+        json.decode(str).map((x) => PostDataUiModel.fromJson(x)));
+
+String postDataUiModelToJson(List<PostDataUiModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class PostDataUiModel {
-  final int userID;
-  final int id;
-  final String title;
-  final String body;
+  int userId;
+  int id;
+  String title;
+  String body;
+
   PostDataUiModel({
-    required this.userID,
+    required this.userId,
     required this.id,
     required this.title,
     required this.body,
   });
+
+  factory PostDataUiModel.fromJson(Map<String, dynamic> json) =>
+      PostDataUiModel(
+        userId: json["userId"],
+        id: json["id"],
+        title: json["title"],
+        body: json["body"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "userId": userId,
+        "id": id,
+        "title": title,
+        "body": body,
+      };
 }
